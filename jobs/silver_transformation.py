@@ -22,4 +22,5 @@ def run_silver_job(spark):
 
     cleaned.write.mode("overwrite").parquet(SILVER_PATH)
 
+    print("Silver Completed.")
     return cleaned
