@@ -10,5 +10,8 @@ def run_bronze_job(spark):
 
     df = (
         spark.read.format("csv")
+        .option("header", True)
+        .schema(transaction_schema())
     )
+
     return df
