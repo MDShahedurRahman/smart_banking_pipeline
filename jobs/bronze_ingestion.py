@@ -17,4 +17,5 @@ def run_bronze_job(spark):
 
     df.write.mode("overwrite").parquet(BRONZE_PATH)
 
+    print("Bronze Completed.")
     return df
