@@ -15,4 +15,6 @@ def run_bronze_job(spark):
         .load(SOURCE_FILE)
     )
 
+    df.write.mode("overwrite").parquet(BRONZE_PATH)
+
     return df
