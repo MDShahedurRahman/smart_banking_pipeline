@@ -13,6 +13,7 @@ def run_silver_job(spark):
 
     cleaned = (
         validate_transactions(df)
+        .dropDuplicates(["transaction_id"])
     )
 
     return cleaned
