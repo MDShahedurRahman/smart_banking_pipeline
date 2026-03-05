@@ -11,7 +11,8 @@ def run_fraud_detection(spark):
     df = spark.read.parquet(SILVER_PATH)
 
     flagged = df.withColumn(
-        "high_amount_flag"
+        "high_amount_flag",
+        when(col("amount") > HIGH_AMOUNT_THRESHOLD, 1).otherwise(0)
     )
 
     return flagged
