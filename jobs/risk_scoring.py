@@ -17,4 +17,5 @@ def run_risk_scoring(spark):
 
     scored.write.mode("overwrite").parquet(SILVER_PATH + "risk_scored/")
 
+    print("Risk Scoring Completed.")
     return scored
