@@ -6,4 +6,10 @@ from config import FRAUD_RISK_THRESHOLD
 def run_risk_scoring(spark):
     print("Running Risk Scoring...")
 
+    df = spark.read.parquet(FRAUD_PATH)
+
+    scored = df.withColumn(
+        "risk_score"
+    )
+
     return scored
