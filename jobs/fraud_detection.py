@@ -15,4 +15,6 @@ def run_fraud_detection(spark):
         when(col("amount") > HIGH_AMOUNT_THRESHOLD, 1).otherwise(0)
     )
 
+    flagged.write.mode("overwrite").parquet(FRAUD_PATH)
+
     return flagged
