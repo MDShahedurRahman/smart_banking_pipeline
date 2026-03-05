@@ -9,7 +9,8 @@ def run_risk_scoring(spark):
     df = spark.read.parquet(FRAUD_PATH)
 
     scored = df.withColumn(
-        "risk_score"
+        "risk_score",
+        when(col("high_amount_flag") == 1, 3)
     )
 
     return scored
