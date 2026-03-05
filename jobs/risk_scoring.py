@@ -12,6 +12,7 @@ def run_risk_scoring(spark):
         "risk_score",
         when(col("high_amount_flag") == 1, 3)
         .when(col("transaction_type") == "TRANSFER", 2)
+        .otherwise(1)
     )
 
     return scored
